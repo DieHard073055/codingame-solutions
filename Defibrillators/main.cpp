@@ -69,9 +69,9 @@ private:
   string name;
   string address;
   string phone;
-  float lng;
-  float lat;
-  float distance;
+  double lng;
+  double lat;
+  double distance;
 
   // find any character from the start till the end position
   int sfind(string s, char x, int start, int end){
@@ -98,8 +98,8 @@ private:
   }
 
   //convert degrees to radians
-  float degree_to_radians(float d){
-    return (float)((float)d * ((float)M_PI / 180));
+  double degree_to_radians(double d){
+    return (double)((double)d * ((double)M_PI / 180));
   }
 
 public:
@@ -135,22 +135,22 @@ public:
   void set_address(string i_address){address = i_address;}
   string get_phone(){return phone;}
   void set_phone(string i_phone){phone = i_phone;}
-  float get_lng(){return lng;}
-  void set_distance(float d){distance=d;}
-  float get_distance(){return distance;}
+  double get_lng(){return lng;}
+  void set_distance(double d){distance=d;}
+  double get_distance(){return distance;}
 
   void set_lng(string i_lng){
     sreplace(i_lng, ',', '.');
     istringstream(i_lng) >> lng;
-    lng = degree_to_radians(lng);
+    //lng = degree_to_radians(lng);
   }
 
-  float get_lat(){return lat;}
+  double get_lat(){return lat;}
 
   void set_lat(string i_lat){
     sreplace(i_lat,',', '.');
     istringstream(i_lat) >> lat;
-    lat = degree_to_radians(lat);
+    //lat = degree_to_radians(lat);
   }
 
   //Print all the data
@@ -167,7 +167,7 @@ public:
   void print_distance(){cout<<distance<<endl;}
   //Calculate the distance between the given lng, lat.
   void calculate_distance(string ln, string la){
-      float ulng, ulat;
+      double ulng, ulat;
       istringstream(ln) >> ulng;
       istringstream(la) >> ulat;
 
@@ -181,9 +181,19 @@ public:
         distance = root(pow(x,2) + pow(y,2)) * 6371
 
       */
-      float x = (float)(lng - ulng) * (float)(cos((float)(ulat + lat) / 2));
-      float y = (float)(lat - ulat);
-      distance = sqrt((float)(x*x) + (float)(y*y)) * (float)EARTH_RADIUS;
+      double x = (double)(lng - ulng) * (double)(cos((double)(ulat + lat) / 2));
+      double y = (double)(lat - ulat);
+      distance = sqrt((double)(x*x) + (double)(y*y)) * (double)EARTH_RADIUS;
+
+      cout << "Ulng : " << ulng << endl;
+      cout<< " ulat : " << ulat << endl;
+      cout<< " lng : " << lng << endl;
+      cout<< " lat : " << lat << endl;
+      cout << "x : " << x << endl;
+      cout<< " y: " << y << endl;
+      cout<< " distance: " << distance << endl;
+      cout << endl << endl;
+
 
   }
 };
@@ -203,11 +213,14 @@ int main()
         debs.push_back(Defibrillators(DEFIB));
     }
 
-    float min = -1;
+    double min = -1;
     int i_min;
 
+    for (size_t i = 0; i < debs.size(); i++)
+      debs[i].print_data();
     //calculate distance and find min
     for (size_t i = 0; i < debs.size(); i++) {
+
       debs[i].calculate_distance(LON, LAT);
       if(min == -1){
         min = debs[i].get_distance();
@@ -218,7 +231,7 @@ int main()
         i_min = i;
       }
       //debug
-      cout << debs[i].get_name() << " :\t" << debs[i].get_distance() << endl;
+      //cout << debs[i].get_name() << " :\t" << debs[i].get_distance() << endl;
     }
 
     // Write an action using cout. DON'T FORGET THE "<< endl"

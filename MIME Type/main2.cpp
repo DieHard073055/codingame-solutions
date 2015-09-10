@@ -1,7 +1,12 @@
 #include <iostream>
 #include <string>
-#include <unordered_map>
+#include <vector>
+#include <map>
 #include <algorithm>
+
+using namespace std;
+
+#define UKN "UNKNOWN"
 /**
 MIME types are used in numerous internet protocols to associate a media type (html, image, video ...) with the content sent. The MIME type is generally inferred from the extension of the file to be sent.
 You have to write a program that makes it possible to detect the MIME type of a file based on its name.
@@ -49,44 +54,77 @@ UNKNOWN
 
 
 
-#define UKN "UNKNOWN"
-using namespace std;
+string TL(string &t){
+  string out="";
+  for (size_t i = 0; i < t.length(); i++) {
+    out+=tolower(t[i]);
+  }
+  return out;
+}
+
+
+string get_mime(map<char, map<string, string> > table, string f){
+
+    f=TL(f);//lower case the letters
+    //cout << "filename : \n" << f << "|" << f.length() << "| " << endl;
+    char letter = f[0];//the first letter of the search query
+    map<char, map<string, string> > ::const_iterator tt = table.find(letter);
+
+    if(tt != table.end()){
+      map<string, string>::const_iterator t = tt->second.find(f);
+
+      if(t != tt->second.end()){
+        return t->second;
+      }
+    }
+    return UKN;
+}
 
 int main()
 {
-    //map to store the reference table
-    unordered_map<string, string> data;
-    // Number of elements which make up the association table.
-    int N; cin >> N; cin.ignore();
-    // Number Q of file names to be analyzed.
-    int Q; cin >> Q; cin.ignore();
+
+    vector<string> results;
+    map<char, map<string, string> > table;
+
+    int N; // Number of elements which make up the association table.
+    cin >> N; cin.ignore();
+    int Q; // Number Q of file names to be analyzed.
+    cin >> Q; cin.ignore();
     for (int i = 0; i < N; i++) {
-        //extension  mime type
-        string EXT; string MT;
+        string EXT; // file extension
+        string MT; // MIME type.
         cin >> EXT >> MT; cin.ignore();
-        //convert to lower case
-        transform(EXT.begin(), EXT.end(), EXT.begin(), ::tolower);
-        //add to the hash table
-        data[EXT] = MT;
+
+
+        EXT = TL(EXT);
+
+        map<string, string> t;
+        t[EXT] = MT;
+        table[EXT[0]] = t;
+
+        //cout << "data : \n" <<  t.begin()->first << "|" << t.begin()->first.length()<< "| " <<  t.begin()->second <<  endl;
 
     }
     for (int i = 0; i < Q; i++) {
-        //Get file to be processed
-        string FNAME; getline(cin, FNAME);
-        //Convert filename to lowercase
-        transform(FNAME.begin(), FNAME.end(), FNAME.begin(), ::tolower);
-        //check if the file has an extensnion
-        unsigned j = FNAME.rfind('.'); if(j==-1)cout << UKN << endl;
-        else{
-          //Find the extension from the hash map
-          unordered_map<string, string>::const_iterator t = data.find(FNAME.substr(j+1));
-          if(t == data.end()){
+        string FNAME; // One file name per line.
+        getline(cin, FNAME);
+        int l = FNAME.length();
+        for(int j=0;j<l;j++){
+          if(FNAME[l-j] == '.'){
+            if((l-j) < l){
+              cout << get_mime(table, FNAME.substr((l-j)+1, l)) << endl;
+              j=l;
+            }
+          }
+          if(j == l-1){
             cout << UKN << endl;
-          }else{
-            //Found!
-            cout << t->second << endl;
           }
         }
     }
+    //cout << get_mime(ext, mime, ext[0]) <<endl;
 
+    // Write an action using cout. DON'T FORGET THE "<< endl"
+    // To debug: cerr << "Debug messages..." << endl;
+
+    //cout << "UNKNOWN" << endl; // For each of the Q filenames, display on a line the corresponding MIME type. If there is no corresponding type, then display UNKNOWN.
 }

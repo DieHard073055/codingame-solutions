@@ -1,0 +1,16 @@
+#include "Person.h"
+
+
+Person::Person(){
+    firstName = "Lol";
+    lastName = "Im So noob";
+}
+
+Person::Person(std::string fName, std::string lName){
+    firstName = fName;
+    lastName = lName;
+}
+
+std::string Person::getName(){
+    return firstName;
+}

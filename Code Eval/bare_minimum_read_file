@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char * argv[]){
+    string line;
+    ifstream file (argv[1]);
+    if(file.is_open()){
+        while(getline(file, line)){
+            //run your code
+            cout << line << endl;
+        }
+    }else{
+        cout << "lol" <<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,55 @@
+/*
+	Template for ICPC Competition
+
+*/
+
+#include <iostream>
+#define UNSET 4231171
+
+using namespace std;
+
+void start(int test_case_num, int total_test_cases){
+	/*Do the Coding*/
+	int num_horses;
+	cin >> num_horses;
+	
+	int horse_data[num_horses];
+	int minimum = UNSET;
+	
+	for(int i=0;i<num_horses;i++){
+		cin >> horse_data[i];
+	}
+	
+	for(int i=0;i<num_horses;i++){
+		for(int j=0;j<num_horses;j++){
+			if(i!=j){
+				//Initiating value for the minimum
+				if(minimum == UNSET){
+					minimum = horse_data[i] - horse_data[j];
+					if(minimum < 0) minimum *= -1;
+				}
+				//Temp variable to hold the minimum difference
+				int currentValue = horse_data[i] - horse_data[j];
+				if(currentValue < 0) currentValue = horse_data[j] - horse_data[i];
+				
+				if(minimum > currentValue) minimum = currentValue;
+					
+			}
+		}
+	}
+	cout << minimum << endl;
+}
+
+int main(void){
+	
+	/*Get the number of test cases*/
+	int num_test_cases = 0;
+	cin >> num_test_cases;
+	
+	/*Call the program in a for loop*/
+	for(int i=0; i < num_test_cases; i++){
+		start(i, num_test_cases);
+	}
+	
+	return 0;
+}

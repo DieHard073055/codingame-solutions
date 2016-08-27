@@ -1,0 +1,28 @@
+#include "Node.h"
+
+
+template <class T>
+Node<T>::Node(int id){
+    this.id = id;
+}
+
+template <class T>
+Node<T>::Node(int id, T d){
+    this.id = id;
+    setData(d);
+}
+
+template <class T>
+int Node<T>::getId(){
+    return this.id;
+}
+
+template <class T>
+void Node<T>::setData(T d){
+    this.data = d;
+}
+
+template <class T>
+T Node<T>::getData(){
+    return this.data;
+}

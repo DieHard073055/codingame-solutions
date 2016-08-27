@@ -1,0 +1,178 @@
+max : 15
+6 8
+inserted 6 into 8 dist 1
+inserted 8 into 6 dist 1
+15 1
+inserted 15 into 1 dist 1
+inserted 1 into 15 dist 1
+1 14
+inserted 1 into 14 dist 1
+inserted 14 into 1 dist 1
+1 :: 15
+inserted 14 into 15 dist 2
+inserted 15 into 14 dist 2
+0 3
+inserted 0 into 3 dist 1
+inserted 3 into 0 dist 1
+15 13
+inserted 15 into 13 dist 1
+inserted 13 into 15 dist 1
+15 :: 1
+15 :: 14
+inserted 13 into 1 dist 2
+inserted 1 into 13 dist 2
+inserted 13 into 14 dist 3
+inserted 14 into 13 dist 3
+9 15
+inserted 9 into 15 dist 1
+inserted 15 into 9 dist 1
+9 :: 1
+9 :: 13
+9 :: 14
+inserted 9 into 1 dist 2
+inserted 1 into 9 dist 2
+inserted 9 into 13 dist 2
+inserted 13 into 9 dist 2
+inserted 9 into 14 dist 3
+inserted 14 into 9 dist 3
+2 5
+inserted 2 into 5 dist 1
+inserted 5 into 2 dist 1
+14 10
+inserted 14 into 10 dist 1
+inserted 10 into 14 dist 1
+14 :: 1
+14 :: 9
+14 :: 13
+14 :: 15
+inserted 10 into 1 dist 2
+inserted 1 into 10 dist 2
+inserted 10 into 9 dist 4
+inserted 9 into 10 dist 4
+inserted 10 into 13 dist 4
+inserted 13 into 10 dist 4
+inserted 10 into 15 dist 3
+inserted 15 into 10 dist 3
+4 9
+inserted 4 into 9 dist 1
+inserted 9 into 4 dist 1
+4 :: 1
+4 :: 10
+4 :: 13
+4 :: 14
+4 :: 15
+inserted 4 into 1 dist 3
+inserted 1 into 4 dist 3
+inserted 4 into 10 dist 5
+inserted 10 into 4 dist 5
+inserted 4 into 13 dist 3
+inserted 13 into 4 dist 3
+inserted 4 into 14 dist 4
+inserted 14 into 4 dist 4
+inserted 4 into 15 dist 2
+inserted 15 into 4 dist 2
+7 2
+inserted 7 into 2 dist 1
+inserted 2 into 7 dist 1
+7 :: 5
+inserted 7 into 5 dist 2
+inserted 5 into 7 dist 2
+8 7
+inserted 8 into 7 dist 1
+inserted 7 into 8 dist 1
+8 :: 2
+8 :: 5
+8 :: 6
+inserted 7 into 6 dist 2
+inserted 6 into 7 dist 2
+inserted 8 into 2 dist 2
+inserted 2 into 8 dist 2
+inserted 8 into 5 dist 3
+inserted 5 into 8 dist 3
+3 4
+inserted 3 into 4 dist 1
+inserted 4 into 3 dist 1
+3 :: 0
+3 :: 1
+3 :: 9
+3 :: 10
+3 :: 13
+3 :: 14
+3 :: 15
+inserted 4 into 0 dist 2
+inserted 0 into 4 dist 2
+inserted 3 into 1 dist 4
+inserted 1 into 3 dist 4
+inserted 3 into 9 dist 2
+inserted 9 into 3 dist 2
+inserted 3 into 10 dist 6
+inserted 10 into 3 dist 6
+inserted 3 into 13 dist 4
+inserted 13 into 3 dist 4
+inserted 3 into 14 dist 5
+inserted 14 into 3 dist 5
+inserted 3 into 15 dist 3
+inserted 15 into 3 dist 3
+1 6
+inserted 1 into 6 dist 1
+inserted 6 into 1 dist 1
+1 :: 3
+1 :: 4
+1 :: 7
+1 :: 8
+1 :: 9
+1 :: 10
+1 :: 13
+1 :: 14
+1 :: 15
+inserted 6 into 3 dist 5
+inserted 3 into 6 dist 5
+inserted 6 into 4 dist 4
+inserted 4 into 6 dist 4
+inserted 6 into 9 dist 3
+inserted 9 into 6 dist 3
+inserted 6 into 10 dist 3
+inserted 10 into 6 dist 3
+inserted 6 into 13 dist 3
+inserted 13 into 6 dist 3
+inserted 6 into 14 dist 2
+inserted 14 into 6 dist 2
+inserted 6 into 15 dist 2
+inserted 15 into 6 dist 2
+inserted 1 into 7 dist 3
+inserted 7 into 1 dist 3
+inserted 1 into 8 dist 2
+inserted 8 into 1 dist 2
+      1 2                       
+      4 3   1 3 2 2 2     2 1 1 
+          1   1 2               
+1 4     1   5     2 6     4 5 3 
+2 3   1     4     1 5     3 4 2 
+    1         2 3               
+  1   5 4     2 1 3 3     3 2 2 
+  3 1     2 2   1               
+  2 2     3 1 1                 
+  2   2 1   3       4     2 3 1 
+  2   6 5   3     4       4 1 3 
+                                
+                                
+  2   4 3   3     2 4       3 1 
+  1   5 4   2     3 1     3   2 
+  1   3 2   2     1 3     1 2   
+2
+4
+2
+6
+5
+3
+5
+3
+3
+4
+6
+13
+13
+4
+5
+3
+2
